@@ -1,76 +1,76 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "description": "Desenvolvimento de site",
+      "description": "Ações",
+      "price": 5000,
+      "category": "Renda Variável",
       "type": "income",
-      "category": "Venda",
-      "price": 14000,
-      "createdAt": "2023-07-12T14:44:38.701Z"
+      "createdAt": "2023-07-17T13:57:37.308Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "description": "Hamburger",
-      "type": "outcome",
-      "category": "Alimentação",
-      "price": 50,
-      "createdAt": "2023-07-10T14:44:38.701Z"
-    },
-    {
-      "id": 3,
-      "description": "Celular",
-      "type": "outcome",
-      "category": "Tecnologia",
-      "price": 2458,
-      "createdAt": "2023-07-09T14:44:38.701Z"
-    },
-    {
-      "description": "Investimentos",
-      "price": 12412,
-      "category": "Bank Investments",
+      "description": "Títulos do Governo",
+      "price": 3000,
+      "category": "Renda Fixa",
       "type": "income",
-      "createdAt": "2023-07-16T20:37:49.370Z",
+      "createdAt": "2023-07-17T13:57:51.271Z",
+      "id": 2
+    },
+    {
+      "description": "Fundos Imobiliários",
+      "price": 2000,
+      "category": "Renda Variável",
+      "type": "income",
+      "createdAt": "2023-07-17T13:58:20.336Z",
+      "id": 3
+    },
+    {
+      "description": "Criptomoedas",
+      "price": 4000,
+      "category": "Renda Variável",
+      "type": "outcome",
+      "createdAt": "2023-07-17T13:58:35.819Z",
       "id": 4
     },
     {
-      "description": "Ações baixas",
-      "price": 10000,
-      "category": "Ações",
+      "description": "Títulos Corporativos",
+      "price": 3500,
+      "category": "Renda Fixa",
       "type": "outcome",
-      "createdAt": "2023-07-17T12:24:02.028Z",
+      "createdAt": "2023-07-17T13:59:01.399Z",
+      "id": 5
+    },
+    {
+      "description": "Fundos de Investimento",
+      "price": 6000,
+      "category": "Renda Variável",
+      "type": "income",
+      "createdAt": "2023-07-17T13:59:23.397Z",
+      "id": 6
+    },
+    {
+      "description": "Poupança",
+      "price": 2300,
+      "category": "Renda Fixa",
+      "type": "income",
+      "createdAt": "2023-07-17T13:59:53.722Z",
       "id": 7
     },
     {
-      "description": "Helicoptero",
-      "price": 430000,
-      "category": "Veículos",
+      "description": "Fundos de Pensão",
+      "price": 4500,
+      "category": "Previdência",
       "type": "outcome",
-      "createdAt": "2023-07-17T12:26:54.044Z",
+      "createdAt": "2023-07-17T14:00:12.875Z",
       "id": 8
     },
     {
-      "description": "Loteria",
-      "price": 1000000,
-      "category": "megasena ",
+      "description": "Imóveis",
+      "price": 8000,
+      "category": "Bens Tangíveis",
       "type": "income",
-      "createdAt": "2023-07-17T12:29:08.794Z",
+      "createdAt": "2023-07-17T14:00:36.139Z",
       "id": 9
-    },
-    {
-      "description": "Loteria",
-      "price": 5000,
-      "category": "ganhei",
-      "type": "income",
-      "createdAt": "2023-07-17T12:29:43.436Z",
-      "id": 10
-    },
-    {
-      "description": "Caminhão bi-trem",
-      "price": 470000,
-      "category": "veículo",
-      "type": "outcome",
-      "createdAt": "2023-07-17T13:29:46.918Z",
-      "id": 11
     }
   ]
 }
