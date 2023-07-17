@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import {
+  TransactionContext,
+  TransactionProp,
+} from "@/app/contexts/transaction";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,8 +14,8 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-
-import { useSummary } from "../../hoooks/useSummary";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 import { ChartContainer } from "./styles";
 
@@ -25,8 +29,38 @@ ChartJS.register(
   Legend
 );
 
-export function ChartComponent() {
-  const summary = useSummary();
+export function ChartComponent(): JSX.Element {
+  const { transactions } = useContext(TransactionContext);
+
+  const incomeTransactions: number[] = [];
+  const outcomeTransactions: number[] = [];
+  const labels: string[] = [];
+
+  transactions.forEach((item: TransactionProp) => {
+    const weekIndex = labels.findIndex((label) => label === item.createdAt);
+
+    const formattedDate = format(new Date(item.createdAt), "dd/MM/yyyy", {
+      locale: ptBR,
+    });
+
+    if (weekIndex === -1) {
+      labels.push(formattedDate);
+      incomeTransactions.push(item.type === "income" ? item.price : 0);
+      outcomeTransactions.push(item.type === "outcome" ? item.price : 0);
+    } else {
+      if (item.type === "income") {
+        incomeTransactions[weekIndex] += item.price;
+      } else if (item.type === "outcome") {
+        outcomeTransactions[weekIndex] += item.price;
+      }
+    }
+  });
+
+  const totalVariations: number[] = [];
+  for (let i = 0; i < labels.length; i++) {
+    const variation = incomeTransactions[i] - outcomeTransactions[i];
+    totalVariations.push(variation);
+  }
 
   const options = {
     responsive: true,
@@ -37,36 +71,26 @@ export function ChartComponent() {
     },
   };
 
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
-
   const data = {
     labels,
     datasets: [
       {
-        label: "Dataset 1",
-        data: summary?.income,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      {
-        label: "Dataset 2",
-        data: summary?.outcome,
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-      },
-      {
-        label: "Dataset 3",
-        data: summary?.total,
+        label: "Entrada",
+        data: incomeTransactions,
         borderColor: "rgb(53, 235, 141)",
         backgroundColor: "rgba(53, 235, 141, 0.5)",
+      },
+      {
+        label: "Saída",
+        data: outcomeTransactions,
+        borderColor: "rgb(247, 90, 104)",
+        backgroundColor: "rgba(247, 90, 104, 0.5)",
+      },
+      {
+        label: "Variação Total",
+        data: totalVariations,
+        borderColor: "rgb(100, 149, 237)",
+        backgroundColor: "rgba(100, 149, 237, 0.5)",
       },
     ],
   };

@@ -32,7 +32,7 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       border: 0;
       background-color: ${(props) => props.theme["gray-900"]};
-      color: ${(props) => props.theme["pink-300"]};
+      color: ${(props) => props.theme["gray-300"]};
       padding: 1rem;
 
       &::placeholder {
@@ -45,7 +45,8 @@ export const Content = styled(Dialog.Content)`
     width: 100%;
     height: 58px;
     border: 0;
-    background-color: ${(props) => props.theme["pink-500"]};
+    border: 2px solid ${(props) => props.theme["gray-700"]};
+    background-color: transparent;
     color: ${(props) => props.theme.white};
     font-weight: bold;
     padding: 0 1.25rem;
@@ -54,7 +55,8 @@ export const Content = styled(Dialog.Content)`
     cursor: pointer;
 
     &:not(:disabled):hover {
-      background-color: ${(props) => props.theme["pink-700"]};
+      border: 2px solid ${(props) => props.theme["cyan-300"]};
+      color: ${(props) => props.theme["cyan-300"]};
       transition: all 0.15s;
     }
 

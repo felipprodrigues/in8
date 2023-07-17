@@ -16,7 +16,7 @@ export const HeaderContent = styled.div`
   align-items: center;
 
   & > div#logo__holder {
-    border: 2px solid ${(props) => props.theme["pink-300"]};
+    border: 2px solid ${(props) => props.theme["gray-700"]};
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@ export const HeaderContent = styled.div`
     height: 50px;
 
     & > h2 {
-      color: ${(props) => props.theme["pink-300"]};
+      color: ${(props) => props.theme["gray-600"]};
       font-weight: bold;
       letter-spacing: 0.2rem;
     }
@@ -35,7 +35,7 @@ export const HeaderContent = styled.div`
 export const NewTransactionButton = styled.button`
   height: 50px;
   border: 0;
-  background-color: ${(props) => props.theme["pink-500"]};
+  background-color: ${(props) => props.theme["cyan-500"]};
   color: ${(props) => props.theme.white};
   font-weight: bold;
   padding: 0 1.25rem;
@@ -43,7 +43,7 @@ export const NewTransactionButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => props.theme["pink-700"]};
+    background-color: ${(props) => props.theme["cyan-700"]};
     transition: background-color 0.5s;
   }
 `;

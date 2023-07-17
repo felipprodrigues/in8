@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { api } from "../lib/axios";
+import { toast } from "react-toastify";
 
 export interface TransactionProp {
   id: number;
@@ -45,6 +46,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
 
       setTransactions(response.data);
     } catch (error) {
+      toast.error("Algo deu errado. Tente novamente!");
       console.log(error);
       return;
     }
@@ -62,12 +64,12 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     });
 
     setTransactions((state) => [response.data, ...state]);
+    toast.success("Nova entrada adicionada!");
   }
 
   async function handleDeleteRow(item: TransactionProp) {
     try {
       await api.delete(`transactions/${item.id}`);
-      console.log("Item deleted successfully.");
 
       const response = await api.get("transactions", {
         params: {
@@ -77,8 +79,9 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       });
 
       setTransactions(response.data);
+      toast.success(`Item removido com sucesso!`);
     } catch (error) {
-      console.log("Error deleting item:", error);
+      toast.error(`Algo deu errado o item: ${error}`);
     }
   }
 
